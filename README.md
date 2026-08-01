@@ -108,17 +108,20 @@ npx content-automator bot
 
 #### 方案 A：使用 Docker 极速部署 (推荐 🌟)
 这是最干净、最省心的部署方式，自带后台守护与环境隔离。
-1. **获取代码**：
+1. **准备知识库 (燃料)**：
+   在 VPS 上拉取你的私人笔记仓库（或者新建空文件夹）：
    ```bash
-   git clone https://github.com/你的用户名/content-automator.git
+   git clone 你的私有笔记仓库地址 my-second-brain
+   cd my-second-brain
+   ```
+2. **获取机器代码 (引擎)**：
+   在知识库文件夹内部，克隆本工具：
+   ```bash
+   git clone https://github.com/0-shang/content-automator.git
    cd content-automator
+   # 复制并填写 .env 文件，填入你的各类 API Keys
    ```
-2. **准备知识库与环境**：
-   机器人需要读取你的笔记（燃料）。如果你已经在使用 GitHub、Syncthing 或 OSS 同步你的 Obsidian/Markdown 笔记，请把它们拉取/同步到 VPS 上。如果是全新开始，可以新建一个空文件夹：
-   ```bash
-   mkdir my-second-brain  # 或者 git clone 你的私有笔记仓库地址
-   # 然后新建并填写 .env 文件，填入你的各类 API Keys
-   ```
+   *(注：使用 Docker 部署时，docker-compose.yml 已经自动配置好了环境路径去读取外层知识库，你不需要再手动修改 WORKSPACE_PATH)*
 3. **一键启动**：
    ```bash
    docker-compose up -d
