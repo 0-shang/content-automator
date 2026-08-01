@@ -104,44 +104,47 @@ npx content-automator bot
 
 ### 🚀 进阶：如何部署到 VPS 实现 24 小时永不宕机？
 
-如果你购买了便宜的云服务器 (VPS) 想要 24 小时挂机，你可以选择以下两种方式之一：
+在 VPS 上部署，你首先需要明确一个核心逻辑：**机器人（引擎）必须读取你的笔记（燃料）才能工作。**
+因此，无论使用哪种部署方式，**第一步永远是把你的知识库同步到 VPS 上**。
 
-#### 方案 A：使用 Docker 极速部署 (推荐 🌟)
-这是最干净、最省心的部署方式，自带后台守护与环境隔离。
-1. **准备知识库 (燃料)**：
-   在 VPS 上拉取你的私人笔记仓库（或者新建空文件夹）：
-   ```bash
-   git clone 你的私有笔记仓库地址 my-second-brain
-   cd my-second-brain
-   ```
-2. **获取机器代码 (引擎)**：
-   在知识库文件夹内部，克隆本工具：
-   ```bash
-   git clone https://github.com/0-shang/content-automator.git
-   cd content-automator
-   # 复制并填写 .env 文件，填入你的各类 API Keys
-   ```
-   *(注：使用 Docker 部署时，docker-compose.yml 已经自动配置好了环境路径去读取外层知识库，你不需要再手动修改 WORKSPACE_PATH)*
-3. **一键启动**：
-   ```bash
-   docker-compose up -d
-   ```
-   *(大功告成！你的机器人已经在后台静默运行。需要看日志随时执行 `docker logs -f content-automator-bot` 即可。)*
+#### 核心前置步骤：准备知识库
+登录你的 VPS，拉取你的私人笔记仓库（如果你使用 Git 同步），或者直接新建一个文件夹。
+```bash
+# 假设你的笔记仓库叫 my-second-brain
+git clone 你的私人笔记仓库地址 my-second-brain
+cd my-second-brain
+```
 
-#### 方案 B：使用 Node.js + PM2 部署
-如果你更熟悉原生 Node.js 全局命令模式，只需这 3 步：
-1. **环境准备**：在 VPS 终端用一行命令安装 Node.js（参考步骤 1），然后创建文件夹并初始化：
+进入知识库目录后，你可以根据你的技术偏好，选择以下**两种部署流派之一**：
+
+#### 方案 A：使用 NPM + PM2 部署 (Node.js 原生流)
+如果你习惯使用 NPM，且 VPS 上已经安装了 Node.js，这是最无脑的方式。你甚至不需要克隆本项目的源码！
+1. **一键安装并初始化**（此时你必须已经在 `my-second-brain` 目录内）：
    ```bash
-   mkdir my-ai-bot && cd my-ai-bot
    npx content-automator init
+   # 使用 nano .env 填好你的各类 API Keys
    ```
-2. **填写密钥**：使用 `nano .env` 填好你所有的 API Keys。
-3. **后台守护运行**：使用 PM2 让机器人在后台静默挂机，即使你关掉 SSH 连接它也不会掉线：
+2. **后台守护运行**：使用 PM2 让机器人静默挂机，即使关掉 SSH 也不会掉线。
    ```bash
    npm install -g pm2
    pm2 start "npx content-automator bot" --name "my-ai-assistant"
    ```
-   *(大功告成！现在你的机器人已经拥有了真正意义上的 24 小时在线“肉身”。)*
+
+#### 方案 B：使用 Docker 极速部署 (容器隔离流)
+如果你不想在 VPS 上折腾 Node 环境，或者你是 NAS 玩家，推荐使用 Docker。
+1. **获取机器代码**：在知识库目录内部，克隆本机器人的源码（为了获取 Docker 配置文件）。
+   ```bash
+   git clone https://github.com/0-shang/content-automator.git
+   cd content-automator
+   cp .env.example .env
+   # 使用 nano .env 填入你的各类 API Keys
+   ```
+   *(注：使用 Docker 部署时，`docker-compose.yml` 已经自动挂载了上层知识库，你不需要再手动修改 `WORKSPACE_PATH`)*
+2. **一键启动**：
+   ```bash
+   docker-compose up -d
+   ```
+   *(大功告成！你可以随时使用 `docker logs -f content-automator-bot` 查看运行日志。)*
 
 ---
 
