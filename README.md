@@ -47,15 +47,16 @@ npx content-automator init
 ```
 
 #### 方式 B：Git 源码克隆 (开发者模式)
-如果你想自己修改代码或者二次开发，可以直接克隆开源仓库：
+如果你想自己修改代码或者二次开发，请将这个开源仓库克隆到**你的知识库文件夹内部**：
 
 ```bash
+cd path/to/my-second-brain
 git clone https://github.com/0-shang/content-automator.git
 cd content-automator
 npm install
 cp .env.example .env
 ```
-*(注意：使用源码模式时，你需要在 `.env` 中手动配置 `WORKSPACE_PATH=你的知识库绝对路径`，并且下文所有的 `npx content-automator ...` 指令都可以用相应的 `node src/xxx.js` 替代)*
+*(⚠️ 核心注意：因为你是克隆在知识库内部，请务必用编辑器打开 `.env` 文件，将工作目录配置指向上级目录：`WORKSPACE_PATH=../`。此外，下文所有的 `npx content-automator ...` 指令都可以用相应的 `node src/xxx.js` 替代)*
 
 ---
 
