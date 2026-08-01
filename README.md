@@ -37,14 +37,29 @@
    cd path/to/my-second-brain
    ```
 
-### 步骤 2：一键初始化工具
+### 步骤 2：获取工具 (两种方式任选其一)
 
-在你的知识库文件夹中，直接运行以下命令（不需要手动下载代码）：
+#### 方式 A：NPM 全局安装 (极简模式，推荐)
+直接在你的知识库文件夹中，运行以下命令（不需要手动下载代码）：
 
 ```bash
 npx content-automator init
 ```
-*运行成功后，你的文件夹里会自动生成一个 `.env` 配置文件，接下来我们需要把各种“钥匙”填进去。*
+
+#### 方式 B：Git 源码克隆 (开发者模式)
+如果你想自己修改代码或者二次开发，可以直接克隆开源仓库：
+
+```bash
+git clone https://github.com/0-shang/content-automator.git
+cd content-automator
+npm install
+cp .env.example .env
+```
+*(注意：使用源码模式时，你需要在 `.env` 中手动配置 `WORKSPACE_PATH=你的知识库绝对路径`，并且下文所有的 `npx content-automator ...` 指令都可以用相应的 `node src/xxx.js` 替代)*
+
+---
+
+*无论使用哪种方式，完成后你都会得到一个 `.env` 配置文件，接下来我们需要把各种“钥匙”填进去。*
 
 ### 步骤 3：配置各种超能力 API (填写 `.env`)
 
