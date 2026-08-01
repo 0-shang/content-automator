@@ -1,0 +1,30 @@
+{
+  "name": "content-automator",
+  "version": "1.0.1",
+  "description": "Automated Twitter/X draft generator and publisher from Obsidian Markdown thoughts",
+  "main": "src/generate.js",
+  "bin": {
+    "content-automator": "bin/cli.js"
+  },
+  "scripts": {
+    "generate": "node src/generate.js",
+    "publish": "node src/publish.js",
+    "watch": "node src/watch.js",
+    "bot": "node src/bot.js",
+    "daily": "node src/daily_news.js"
+  },
+  "dependencies": {
+    "@google/genai": "*",
+    "cheerio": "^1.2.0",
+    "dotenv": "*",
+    "form-data": "^4.0.6",
+    "gray-matter": "*",
+    "marked": "^18.0.7",
+    "node-cron": "^4.5.0",
+    "node-fetch": "^2.7.0",
+    "rss-parser": "^3.13.0",
+    "telegraf": "^4.16.3",
+    "twitter-api-v2": "*"
+  },
+  "type": "commonjs"
+}
