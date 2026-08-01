@@ -112,9 +112,10 @@ npx content-automator bot
    git clone https://github.com/你的用户名/content-automator.git
    cd content-automator
    ```
-2. **准备环境**：创建知识库文件夹，并配置你的 `.env` 秘钥文件。
+2. **准备知识库与环境**：
+   机器人需要读取你的笔记（燃料）。如果你已经在使用 GitHub、Syncthing 或 OSS 同步你的 Obsidian/Markdown 笔记，请把它们拉取/同步到 VPS 上。如果是全新开始，可以新建一个空文件夹：
    ```bash
-   mkdir my-second-brain
+   mkdir my-second-brain  # 或者 git clone 你的私有笔记仓库地址
    # 然后新建并填写 .env 文件，填入你的各类 API Keys
    ```
 3. **一键启动**：
