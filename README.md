@@ -66,6 +66,7 @@
   - `/daily`：呼叫后台引擎，抓取全网最新资讯（科技、工具、理财、社会等多源早报），进行 AI 筛选与翻译，并在本地缓存。
   - `/news`：调出刚刚缓存的早报看板。你只需回复新闻对应的【数字序号】，机器人就会针对这条新闻自动为你生成辣评推文。
   - `/refetch`：当你对当前的早报不满意时，可按特定分类（仅重抓科技、仅重抓理财等）重新拉取新鲜资讯。
+  - `/clippings`：抓取本地 Obsidian 知识库文章。自动扫描 `Clippings` 文件夹中的未读收藏，AI 会将其总结提炼并直接转化为推文或长文草稿。
 
 - **审核与一键分发**
   - `/check`：扫描 Obsidian 的草稿文件夹。它会列出所有待发布的推文，你可以直接在 Telegram 里点击预览。
@@ -92,6 +93,22 @@
   - 增删改查你喜欢的 RSS 链接。
   - 为每个源设定抓取配额（`quota`）。
   - 自定义源的标签（`label`）。
+
+---
+
+### 🛠 开发者与开源定制 (Hack & Customize)
+
+Content Automator 完全开源，旨在为你提供一个强大的底层自动化框架。如果你想要更深度的私有化定制，完全可以基于开源代码自行魔改：
+- **获取开源代码**：你可以通过 `git clone https://github.com/0-shang/content-automator.git` 获取完整源码，或者 fork 本项目进行二次开发。
+- **自定义你的系统**：你可以通过修改源码，自由接入其他知识库系统（如 Notion、飞书），接入新的大模型 API，或是增加内容分发渠道（如小红书、即刻等）。
+
+---
+
+### 🎁 彩蛋功能 (Easter Eggs)
+
+系统还隐藏了一些提升全链路体验的彩蛋功能：
+- **公众号与个人网站联动同步**：当你在 Telegram 确认生成并发布一篇公众号文章时，系统除了同步到微信草稿箱，还可以自动将其部署/同步到你的个人网站（如基于 GitHub Pages/Vercel 构建的静态博客），实现一次创作、多端沉淀的“一键全网分发”。
+- **极客私有化玩法**：借助开源属性，你可以轻松定制私人专属的触发器。比如，将生成的早报自动定时发送到你管理的社群，或是让机器人根据特定指令帮你执行服务器上的脚本。
 
 ---
 
@@ -182,6 +199,7 @@ Send a casual thought to the bot, and it automatically diverges and expands it i
   - `/daily`: Fetch and translate the latest daily news (Tech, Finance, etc.) across the web.
   - `/news`: Pull up the cached news board. Just reply with the corresponding number of the news to auto-generate a tweet.
   - `/refetch`: Re-fetch daily news by specific categories (e.g., Tech only, Finance only).
+  - `/clippings`: Fetch local Obsidian articles. Scans unread collections in your `Clippings` folder and lets AI summarize them into draft tweets or long-form posts.
 
 - **Review & One-Click Distribution**
   - `/check`: Scans your Obsidian's `drafts` folder. Preview pending tweets directly in Telegram.
@@ -201,6 +219,21 @@ When you trigger `/daily`, the bot concurrently fetches from dozens of top-tier 
 - By default, it features 7 major categories (Tech/AI, Finance, Society, Personal Growth, Tweets/Ideas, Sports Industry, etc.), encompassing over 40 sources like TechCrunch, Reddit Top, and more.
 - **How to customize this matrix?**
   Open the source code file **`src/daily_news.js`**. Around line 40, you will find the `defaultRssSources` object. You can freely edit this JSON structure to add/remove RSS URLs and set fetch quotas.
+
+---
+
+### 🛠 Open Source & Customization
+
+Content Automator is fully open-source, providing a powerful foundational framework for automation. 
+- **Get the Source Code**: Clone the repository via `git clone https://github.com/0-shang/content-automator.git` or fork it on GitHub.
+- **Hack and Customize**: You have the ultimate freedom to modify the code. Integrate it with Notion, connect new LLMs, or add publishing routes for other social platforms.
+
+---
+
+### 🎁 Easter Eggs
+
+- **Sync to Personal Website**: When you generate and approve a WeChat official article, the system can sync it not only to WeChat but also directly deploy it to your personal website (e.g., Markdown-based static blogs), achieving true "write once, publish everywhere."
+- **Private Automation Flows**: Leverage the open-source nature to build personalized triggers, such as auto-forwarding the morning news to your community groups or executing custom scripts on your server.
 
 ---
 
