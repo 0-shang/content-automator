@@ -1,4 +1,4 @@
-# Content Automator (灵感发散引擎)
+# Content Copilot (灵感发散引擎)
 
 [English](#english) | [中文](#中文)
 
@@ -13,7 +13,7 @@
 - 每天浏览大量科技、理财新闻，却无法将信息转化为可复用的内容资产。
 - 灵感一闪而过，但切换 AI 工具、排版、配图、多平台分发的繁琐流程直接杀死了创作欲。
 
-**Content Automator 是一套为你量身打造的全自动化内容生产线。** 
+**Content Copilot 是一套为你量身打造的灵感发散引擎与全自动化内容生产线。** 
 它抛弃了臃肿的网页后台，**将 Telegram 客户端化作你唯一的超级控制台**。只需一部手机，即可实现从“信息获取 - 深度阅读 - AI 创作 - 自动排版配图 - 一键发布”的极致丝滑过渡，让您的生产力实现真正的跃迁。
 
 ### 核心特性：为什么它不可替代？
@@ -38,7 +38,7 @@
 
 ---
 
-### 为什么选择 Content Automator？
+### 为什么选择 Content Copilot？
 
 严格意义上讲，本工具并非具备复杂自主规划能力的通用型 Agent，而是一套**“高度专注于输出的自动化流水线 (Automated Workflow)”**。相较于市面上常见的笔记助手（如 Notion AI 或 Obsidian Copilot），它的独特性在于：
 
@@ -98,7 +98,7 @@
 
 ### 🛠 开发者与开源定制 (Hack & Customize)
 
-Content Automator 完全开源，旨在为你提供一个强大的底层自动化框架。如果你想要更深度的私有化定制，完全可以基于开源代码自行魔改：
+Content Copilot 完全开源，旨在为你提供一个强大的底层自动化框架。如果你想要更深度的私有化定制，完全可以基于开源代码自行魔改：
 - **获取开源代码**：你可以通过 `git clone https://github.com/0-shang/content-automator.git` 获取完整源码，或者 fork 本项目进行二次开发。
 - **自定义你的系统**：你可以通过修改源码，自由接入其他知识库系统（如 Notion、飞书），接入新的大模型 API，或是增加内容分发渠道（如小红书、即刻等）。
 
@@ -162,7 +162,7 @@ npx content-automator bot
 - Browsing massive amounts of tech and finance news daily but failing to convert them into reusable assets.
 - Friction from switching between AI tools, formatting, sourcing images, and publishing kills your creative drive.
 
-**Content Automator is a fully-automated production line tailored for you.**
+**Content Copilot is your exclusive content copilot and fully-automated production line.**
 It abandons bloated web dashboards and **turns your Telegram client into your sole super-console**. Achieve a seamlessly smooth workflow from "Information Intake -> Deep Reading -> AI Generation -> Auto-formatting & Image Sourcing -> One-Click Distribution".
 
 ### Core Highlights
@@ -224,7 +224,7 @@ When you trigger `/daily`, the bot concurrently fetches from dozens of top-tier 
 
 ### 🛠 Open Source & Customization
 
-Content Automator is fully open-source, providing a powerful foundational framework for automation. 
+Content Copilot is fully open-source, providing a powerful foundational framework for automation. 
 - **Get the Source Code**: Clone the repository via `git clone https://github.com/0-shang/content-automator.git` or fork it on GitHub.
 - **Hack and Customize**: You have the ultimate freedom to modify the code. Integrate it with Notion, connect new LLMs, or add publishing routes for other social platforms.
 
