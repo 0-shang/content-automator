@@ -17,21 +17,39 @@ Content Automator 是一套基于 Telegram 的全自动化内容生产线。它�
 - **一键多平台分发**：内容产出后，只需在 Telegram 中点击确认，即可一键发布至 Twitter，或同步存入微信公众号草稿箱。
 
 ### 怎么安装？
-1. **定位 Obsidian 知识库**：在您的 Obsidian 知识库根目录下，打开终端运行：
-   ```bash
-   mkdir content-automator
-   cd content-automator
-   ```
-2. **初始化配置**：运行以下命令初始化项目（开发者也可选择直接 `git clone` 源码）：
-   ```bash
-   npx content-automator init
-   ```
-3. **配置 API 密钥**：打开项目目录中生成的 `.env` 文件，填入各项必要的 API 密钥（如 Telegram Bot Token、您的 Telegram ID、大模型 DeepSeek/Gemini 的 API Key、Twitter 凭证等）。
-4. **启动服务**：
-   ```bash
-   npx content-automator bot
-   ```
-   看到成功提示后，服务即在后台运行。打开 Telegram 找到您的机器人，发送 `/start` 即可开始体验！
+
+**环境准备**：请确保您的电脑已经安装了 [Node.js](https://nodejs.org/)（建议版本 18+）。
+
+**1. 定位并创建目录**
+在您的 Obsidian 知识库根目录下，打开终端（命令行）运行：
+```bash
+mkdir content-automator
+cd content-automator
+```
+*(注：放在 Obsidian 根目录是为了方便工具读取您的笔记。如果您不需要处理本地笔记，也可以放在任意目录)*
+
+**2. 初始化项目**
+运行以下命令初始化 Agent：
+```bash
+npx content-automator init
+```
+*(执行完毕后，当前目录下会自动生成一个 `.env` 配置文件)*
+
+**3. 获取并配置 API 密钥**
+用文本编辑器打开生成的 `.env` 文件，按需填入以下关键信息：
+- **Telegram 配置**（必须）：
+  - `TELEGRAM_BOT_TOKEN`：在 Telegram 中搜索并添加 `@BotFather`，发送 `/newbot` 创建一个机器人，复制获取到的 Token。
+  - `TELEGRAM_USER_ID`：在 Telegram 中搜索 `@userinfobot` 或 `@getmyid_bot`，获取您的纯数字 ID。
+- **大模型配置**（必须选其一）：
+  - 填入 `DEEPSEEK_API_KEY` 或 `GEMINI_API_KEY`。
+- **多平台凭证**（可选）：若需使用推特一键发布等高级功能，可填入对应的 Twitter API 凭证。
+
+**4. 启动后台服务**
+配置完成后，在终端运行：
+```bash
+npx content-automator bot
+```
+看到服务启动成功的提示后，即可在 Telegram 中找到您刚才创建的机器人，发送 `/start` 即可开始体验！
 
 ---
 
@@ -48,18 +66,36 @@ Content Automator is a fully-automated content production pipeline based on Tele
 - **Frictionless Multi-Platform Distribution**: Review AI-generated drafts in Telegram and push them instantly to Twitter or sync to your WeChat Official Account.
 
 ### How to Install?
-1. **Create Directory**: Open a terminal in your Obsidian vault root directory and run:
-   ```bash
-   mkdir content-automator
-   cd content-automator
-   ```
-2. **Initialize**: Run the following command to initialize the agent:
-   ```bash
-   npx content-automator init
-   ```
-3. **Configure APIs (.env)**: Open the generated `.env` file and fill in the required API keys (Telegram Token, AI keys like DeepSeek/Gemini, Twitter API keys, etc.).
-4. **Launch the Service**:
-   ```bash
-   npx content-automator bot
-   ```
-   Once started, open Telegram, find your bot, send `/start`, and begin your automated content creation journey!
+
+**Prerequisites**: Please ensure you have [Node.js](https://nodejs.org/) installed (version 18+ recommended).
+
+**1. Create Working Directory**
+Open a terminal in your Obsidian vault root directory and run:
+```bash
+mkdir content-automator
+cd content-automator
+```
+*(Note: Placing it in the Obsidian root allows the tool to read your notes. If you don't need local notes processing, any directory works.)*
+
+**2. Initialize the Project**
+Run the following command to initialize the agent:
+```bash
+npx content-automator init
+```
+*(This will automatically generate a `.env` configuration file in the current directory.)*
+
+**3. Configure API Keys (.env)**
+Open the generated `.env` file in any text editor and fill in the required info:
+- **Telegram Setup** (Required):
+  - `TELEGRAM_BOT_TOKEN`: Search for `@BotFather` in Telegram, send `/newbot` to create a bot, and copy the provided token.
+  - `TELEGRAM_USER_ID`: Search for `@userinfobot` in Telegram to get your personal numerical ID.
+- **LLM Setup** (Choose One):
+  - Provide either `DEEPSEEK_API_KEY` or `GEMINI_API_KEY`.
+- **Publishing Credentials** (Optional): Provide Twitter API keys if you wish to use the one-click publishing feature.
+
+**4. Launch the Service**
+Once configured, run:
+```bash
+npx content-automator bot
+```
+After a successful startup, open Telegram, find the bot you just created, send `/start`, and begin your automated content creation journey!
